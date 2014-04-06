@@ -1,3 +1,6 @@
+h2
+  | Sign in DERP
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 html
   scirpt[href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="type/css"]
     style
@@ -8,8 +11,10 @@ html
           .account-wall
             img.profile-img[src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt=""]
             form.form-signin
-              input.form-control[type="text" placeholder="Email" required autofocus]
+              input.form-control[type="text" placeholder="Email" required autofocus] 
+                = f.email_field :email, autofocus: true
               input.form-control[type="password" placeholder="Password" required]
+                = f.password_field :password, autocomplete: "off"
               button.btn.btn-lg.btn-primary.btn-block[type="submit"]
                 |  Sign in
               label.checkbox.pull-left
